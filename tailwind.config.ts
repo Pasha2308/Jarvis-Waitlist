@@ -9,8 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        black: "#000000",
+        red: "#ff2a2a",
+        gold: "#ffd700",
+      },
+      fontFamily: {
+        bebas: ["var(--font-bebas-neue)", "sans-serif"],
+        rajdhani: ["var(--font-rajdhani)", "sans-serif"],
+        mono: ["var(--font-space-mono)", "monospace"],
       },
     },
   },
