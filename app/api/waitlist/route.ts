@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { NEXT_PUBLIC_SUPABASE_ANON_KEY, NEXT_PUBLIC_SUPABASE_URL } from "@/lib/env";
+import { env } from "@/lib/env";
 import { resend } from "@/lib/resend";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -27,7 +27,10 @@ export async function POST(request: Request) {
 
     console.log("Incoming email:", email);
 
-    const supabase = createClient(NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY);
+    const supabase = createClient(
+      env.NEXT_PUBLIC_SUPABASE_URL,
+      env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    );
     const refCode = generateRefCode();
     const createdAt = new Date().toISOString();
     const baseOffset = 2000;
